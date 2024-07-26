@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: oms-schpu-custumer-preference-service
+rahul:
+  queue:
+    broker-url: tcp://localhost:61616
+    username: admin
+    password: admin
+    component-name: activemq
+    maxActive: 100
+    maxConnections: 10
+  external:
+    queues:
+      myQueue: activemq:myFirstQueue
+    
+    
