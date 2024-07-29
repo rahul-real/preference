@@ -16,4 +16,7 @@ public class Constants {
 	
 	public static final String QUEUE = "rahul.external.queues";
 
+	public static final String STORED = "rahul.stored";
+	
+	public static final Byte SUCCESS = 1;
 }

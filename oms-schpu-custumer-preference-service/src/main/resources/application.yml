@@ -1,6 +1,20 @@
 spring:
   application:
     name: oms-schpu-custumer-preference-service
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;encrypt=true;trustServerCertificate=true;databaseName=Rahul
+    username: SQL_Login
+    password: Qwerty@123
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    hikari:
+      pool-name: JKDKCP
+      connection-timeout: 30000
+      max-lifeTime: 2000000
+      maximum-pool-size: 100
+      idle-timeout: 30000
+      minimum-idle: 5
+    disable-prepared-statements-pool: false
+    prepared-statements-cache-size: 250    
 rahul:
   queue:
     broker-url: tcp://localhost:61616
@@ -12,5 +26,8 @@ rahul:
   external:
     queues:
       myQueue: activemq:myFirstQueue
+  stored:
+    insertRegistrationData: dbo.AddRegistrationData
+    getRegistrationData: dbo.Get_Registration_Data
     
     

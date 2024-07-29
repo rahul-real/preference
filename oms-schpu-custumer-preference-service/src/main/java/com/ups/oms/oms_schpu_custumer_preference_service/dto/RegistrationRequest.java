@@ -3,6 +3,8 @@
  */
 package com.ups.oms.oms_schpu_custumer_preference_service.dto;
 
+import com.ups.oms.oms_schpu_custumer_preference_service.annotation.DataFormat;
+
 import lombok.Data;
 
 /**
@@ -20,5 +22,6 @@ public class RegistrationRequest {
 	
 	private String accountNumber;
 	
+	@DataFormat(pattern = "YYYY-MM-DD",message = "Date should be yyyy-MM-dd format")
 	private String date;
 }

@@ -3,8 +3,13 @@
  */
 package com.ups.oms.oms_schpu_custumer_preference_service.router;
 
+import java.util.UUID;
+
+import org.apache.camel.Exchange;
+import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.dataformat.JsonLibrary;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -30,6 +35,19 @@ public class Router extends RouteBuilder  {
 		
 		from(queues.getMyQueue())
 		.log("${body}")
+		.process(new Processor() {
+			
+			@Override
+			public void process(Exchange exchange) throws Exception {
+				String applicationSystemNumber = exchange.getIn().getHeader("ApplicationSystemNumber",String.class);
+				if (StringUtils.isBlank(applicationSystemNumber)) {
+					applicationSystemNumber = UUID.randomUUID().toString();
+					
+				}
+				exchange.getIn().setHeader("ApplicationSystemNumber", applicationSystemNumber);
+				
+			}
+		})
 		.unmarshal().json(JsonLibrary.Jackson,RegistrationRequest.class)
 		.process(proccessor)
 		.end();
