@@ -9,9 +9,5 @@ public class OmsSchpuCustumerPreferenceServiceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(OmsSchpuCustumerPreferenceServiceApplication.class, args);
 	}
-	
-	static {
-		System.out.println("Hello ");
-	}
 
 }

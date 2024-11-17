@@ -4,7 +4,7 @@ spring:
   datasource:
     url: jdbc:sqlserver://localhost:1433;encrypt=true;trustServerCertificate=true;databaseName=Rahul
     username: SQL_Login
-    password: Qwerty@123
+    password: Qwerty123
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
     hikari:
       pool-name: JKDKCP

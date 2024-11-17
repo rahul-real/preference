@@ -78,8 +78,9 @@ public class CustomerPreferenceRepositoryImpl  implements CustomerPreferenceRepo
 			storedProcedureQuery.registerStoredProcedureParameter("ParId", String.class, ParameterMode.IN)
 			.setParameter("ParId", parId);
 			storedProcedureQuery.execute();
-			List<Object> object = storedProcedureQuery.getResultList();
+			List<Object[]> object = storedProcedureQuery.getResultList();
 			if(object != null && !object.isEmpty()) {
+				log.info("Stored Procedure Result: {}", object);
 				registrationData = object.stream().map(RegistrationData::new).collect(Collectors.toList());
 				
 			}
